@@ -1,0 +1,3 @@
+packages:
+  - 'packages/*'
+  - 'mantine-vite/'
