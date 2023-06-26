@@ -9,7 +9,7 @@ import {
   AppShell,
 } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Route, BrowserRouter, Routes, Link } from 'react-router-dom'
 import { routes } from './Menus'
 
@@ -96,7 +96,7 @@ export default function App() {
       component={Link}
       variant="link"
       to={route.path}
-      onClick={(event: any) => {
+      onClick={() => {
         setActive(route.name)
       }}
     >
