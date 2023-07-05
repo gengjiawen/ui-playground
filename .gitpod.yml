@@ -6,5 +6,4 @@
 
 tasks:
   - init: pnpm install
-
-
+  - init: npm i -g npm-check-updates
