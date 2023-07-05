@@ -85,19 +85,20 @@ const useStyles = createStyles((theme) => ({
 
 export default function App() {
   const { classes, cx } = useStyles()
-  const [active, setActive] = useState('Home')
+  const path = window.location.pathname
+  const [active, setActive] = useState(path)
 
   const links = routes.map((route) => (
     <Text
       key={route.path}
       className={cx(classes.link, {
-        [classes.linkActive]: route.name === active,
+        [classes.linkActive]: route.path === active,
       })}
       component={Link}
       variant="link"
       to={route.path}
       onClick={() => {
-        setActive(route.name)
+        setActive(route.path)
       }}
     >
       {route.name}
