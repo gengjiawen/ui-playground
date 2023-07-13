@@ -27,7 +27,7 @@ importers:
         version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/ds':
         specifier: 6.0.16
-        version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.23.0)(react-dom@18.2.0)(react@18.2.0)
+        version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.25.0)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/form':
         specifier: 6.0.16
         version: 6.0.16(react@18.2.0)
@@ -44,8 +44,11 @@ importers:
         specifier: 6.0.16
         version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@tabler/icons-react':
-        specifier: ^2.23.0
-        version: 2.23.0(react@18.2.0)
+        specifier: ^2.25.0
+        version: 2.25.0(react@18.2.0)
+      papaparse:
+        specifier: ^5.4.1
+        version: 5.4.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -56,6 +59,9 @@ importers:
         specifier: ^6.14.1
         version: 6.14.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@types/papaparse':
+        specifier: ^5.3.7
+        version: 5.3.7
       '@types/react':
         specifier: ^18.2.14
         version: 18.2.14
@@ -802,7 +808,7 @@ packages:
       react-dropzone: 14.2.3(react@18.2.0)
     dev: false
 
-  /@mantine/ds@6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.23.0)(react-dom@18.2.0)(react@18.2.0):
+  /@mantine/ds@6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.25.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-luhm52ZFpe11H1TWvpASQ8QdDloUZWZJLO/lWpEN/4p8gN5wjYQtDRt5reNNch+E7UVJCRCfz2n9FqC1Z6wTOQ==}
     peerDependencies:
       '@mantine/core': 6.0.16
@@ -816,7 +822,7 @@ packages:
       '@mantine/hooks': 6.0.16(react@18.2.0)
       '@mantine/prism': 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/utils': 6.0.16(react@18.2.0)
-      '@tabler/icons-react': 2.23.0(react@18.2.0)
+      '@tabler/icons-react': 2.25.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -1046,22 +1052,32 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@tabler/icons-react@2.23.0(react@18.2.0):
-    resolution: {integrity: sha512-+H4mC1EZVCzCRhnPwZEVTI0veVCJuAKlopeCnRlfsYcmzgJm6Ye234c4A2qrLPQoi1Y29uN9+kqCyuYW007jPg==}
+  /@tabler/icons-react@2.25.0(react@18.2.0):
+    resolution: {integrity: sha512-so/amZZcvuZBBTMinReI219ek1MwlZfccGfRu7IwXEhgHftFTfyBOvTK9Kgf4vM+9+i0CcuVRoxyfQiuUwYUWg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tabler/icons': 2.23.0
+      '@tabler/icons': 2.25.0
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@2.23.0:
-    resolution: {integrity: sha512-dU54aBwaxG0H+jQ4BdrqtYFN5L7PZevvlnzyL6XeOZgfDS3+sVNCtuG3JmpTEqQSwGLYC1IEwogPGA/Iit2bOA==}
+  /@tabler/icons@2.25.0:
+    resolution: {integrity: sha512-Z+FtSZoG/CM1TMCgg7elUew2m0+qMdh5gutMhvxiIY77KIIsE6L/6fUBy+rPXWE9v7MV296fsnCvbpfgwpXupQ==}
     dev: false
 
   /@types/json-schema@7.0.12:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
+    dev: true
+
+  /@types/node@20.4.2:
+    resolution: {integrity: sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw==}
+    dev: true
+
+  /@types/papaparse@5.3.7:
+    resolution: {integrity: sha512-f2HKmlnPdCvS0WI33WtCs5GD7X1cxzzS/aduaxSu3I7TbhWlENjSPs6z5TaB9K0J+BH1jbmqTaM+ja5puis4wg==}
+    dependencies:
+      '@types/node': 20.4.2
     dev: true
 
   /@types/parse-json@4.0.0:
@@ -2056,6 +2072,10 @@ packages:
     dependencies:
       p-limit: 3.1.0
     dev: true
+
+  /papaparse@5.4.1:
+    resolution: {integrity: sha512-HipMsgJkZu8br23pW15uvo6sib6wne/4woLZPlFf3rpDyMe9ywEXUsuD7+6K9PRkJlVT51j/sCOYDKGGS3ZJrw==}
+    dev: false
 
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
