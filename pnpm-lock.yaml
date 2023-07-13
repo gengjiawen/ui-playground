@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .: {}
@@ -23,7 +27,7 @@ importers:
         version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/ds':
         specifier: 6.0.16
-        version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.23.0)(react-dom@18.2.0)(react@18.2.0)
+        version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.25.0)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/form':
         specifier: 6.0.16
         version: 6.0.16(react@18.2.0)
@@ -40,8 +44,8 @@ importers:
         specifier: 6.0.16
         version: 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@tabler/icons-react':
-        specifier: ^2.23.0
-        version: 2.23.0(react@18.2.0)
+        specifier: ^2.25.0
+        version: 2.25.0(react@18.2.0)
       papaparse:
         specifier: ^5.4.1
         version: 5.4.1
@@ -804,7 +808,7 @@ packages:
       react-dropzone: 14.2.3(react@18.2.0)
     dev: false
 
-  /@mantine/ds@6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.23.0)(react-dom@18.2.0)(react@18.2.0):
+  /@mantine/ds@6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(@mantine/prism@6.0.16)(@tabler/icons-react@2.25.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-luhm52ZFpe11H1TWvpASQ8QdDloUZWZJLO/lWpEN/4p8gN5wjYQtDRt5reNNch+E7UVJCRCfz2n9FqC1Z6wTOQ==}
     peerDependencies:
       '@mantine/core': 6.0.16
@@ -818,7 +822,7 @@ packages:
       '@mantine/hooks': 6.0.16(react@18.2.0)
       '@mantine/prism': 6.0.16(@mantine/core@6.0.16)(@mantine/hooks@6.0.16)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/utils': 6.0.16(react@18.2.0)
-      '@tabler/icons-react': 2.23.0(react@18.2.0)
+      '@tabler/icons-react': 2.25.0(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -1048,18 +1052,18 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@tabler/icons-react@2.23.0(react@18.2.0):
-    resolution: {integrity: sha512-+H4mC1EZVCzCRhnPwZEVTI0veVCJuAKlopeCnRlfsYcmzgJm6Ye234c4A2qrLPQoi1Y29uN9+kqCyuYW007jPg==}
+  /@tabler/icons-react@2.25.0(react@18.2.0):
+    resolution: {integrity: sha512-so/amZZcvuZBBTMinReI219ek1MwlZfccGfRu7IwXEhgHftFTfyBOvTK9Kgf4vM+9+i0CcuVRoxyfQiuUwYUWg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tabler/icons': 2.23.0
+      '@tabler/icons': 2.25.0
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@2.23.0:
-    resolution: {integrity: sha512-dU54aBwaxG0H+jQ4BdrqtYFN5L7PZevvlnzyL6XeOZgfDS3+sVNCtuG3JmpTEqQSwGLYC1IEwogPGA/Iit2bOA==}
+  /@tabler/icons@2.25.0:
+    resolution: {integrity: sha512-Z+FtSZoG/CM1TMCgg7elUew2m0+qMdh5gutMhvxiIY77KIIsE6L/6fUBy+rPXWE9v7MV296fsnCvbpfgwpXupQ==}
     dev: false
 
   /@types/json-schema@7.0.12:
@@ -2623,7 +2627,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
