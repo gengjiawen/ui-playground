@@ -7,8 +7,9 @@ import { useState } from 'react'
 export function DemoPage(props: Partial<DropzoneProps>) {
   const theme = useMantineTheme()
   const [file, setFile] = useState('')
+  const [error, setFileError] = useState('')
   const max_m = 10
-  const maxFilesize  = max_m * 1024 ** 2
+  const maxFilesize = max_m * 1024 ** 2
   return (
     <>
       <Dropzone
@@ -24,7 +25,11 @@ export function DemoPage(props: Partial<DropzoneProps>) {
             })
           }
         }}
-        onReject={(files) => console.log('rejected files', files)}
+        onReject={(files) => {
+          console.log('rejected files', files)
+          setFile(files[0].file.name)
+          setFileError(files[0].errors[0].message)
+        }}
         maxSize={maxFilesize}
         {...props}
       >
@@ -71,12 +76,14 @@ export function DemoPage(props: Partial<DropzoneProps>) {
               inline
               mt={7}
             >
-              Attach as many files as you like, each file should not exceed {max_m}mb
+              Attach as many files as you like, each file should not exceed{' '}
+              {max_m}mb
             </Text>
           </div>
         </Group>
       </Dropzone>
       <Title>File: {file} </Title>
+      {error.length > 0 && <Title>File Error: {error} </Title> }
     </>
   )
 }
