@@ -6,4 +6,9 @@
 
 tasks:
   - init: pnpm install
+    command: cd mantine-vite && pnpm dev
   - init: npm i -g npm-check-updates
+
+ports:
+  - port: 5173
+    visibility: public

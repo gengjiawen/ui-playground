@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { DemoPage } from './Demo'
+import PictureLayout from './PictureLayout';
 
 export const routes = [
   {
@@ -11,7 +12,7 @@ export const routes = [
     ),
     name: 'Home',
   },
-  { path: '/contact', element: <Contact />, name: 'Contact' },
+  { path: '/contact', element: <PictureLayout />, name: 'Contact' },
   { path: '/about', element: <About />, name: 'About' },
 ]
 
