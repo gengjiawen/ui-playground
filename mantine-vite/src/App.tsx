@@ -1,131 +1,54 @@
-import {
-  createStyles,
-  Navbar,
-  Group,
-  Code,
-  Text,
-  getStylesRef,
-  rem,
-  AppShell,
-} from '@mantine/core'
-import { MantineLogo } from '@mantine/ds';
-import { useState } from 'react'
-import { Route, BrowserRouter, Routes, Link } from 'react-router-dom'
-import { routes } from './Menus'
+import { 
+  AppShell, Burger, Group, NavLink as MantineNavLink
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { MantineLogo } from '@mantinex/mantine-logo';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import PictureLayout from './PictureLayout';
+import { DemoPage } from './Demo';
 
-const useStyles = createStyles((theme) => ({
-  header: {
-    paddingBottom: theme.spacing.md,
-    marginBottom: `calc(${theme.spacing.md} * 1.5)`,
-    borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
-  },
-
-  footer: {
-    paddingTop: theme.spacing.md,
-    marginTop: theme.spacing.md,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
-  },
-
-  link: {
-    ...theme.fn.focusStyles(),
-    display: 'flex',
-    alignItems: 'center',
-    textDecoration: 'none',
-    fontSize: theme.fontSizes.sm,
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[1]
-        : theme.colors.gray[7],
-    padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
-    borderRadius: theme.radius.sm,
-    fontWeight: 500,
-
-    '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-
-      [`& .${getStylesRef('icon')}`]: {
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-      },
-    },
-  },
-
-  linkIcon: {
-    ref: getStylesRef('icon'),
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[2]
-        : theme.colors.gray[6],
-    marginRight: theme.spacing.sm,
-  },
-
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({
-        variant: 'light',
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-        .color,
-      [`& .${getStylesRef('icon')}`]: {
-        color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-          .color,
-      },
-    },
-  },
-}))
-
+const routes = [
+  { path: "/", label: "Home", element: <div>Home Page</div> },
+  { path: "/contact", label: "Contact", element: <DemoPage/> },
+  { path: "/about", label: "About", element: <PictureLayout/> },
+];
 
 export default function App() {
-  const { classes, cx } = useStyles()
-  const path = window.location.pathname
-  const [active, setActive] = useState(path)
-
-  const links = routes.map((route) => (
-    <Text
-      key={route.path}
-      className={cx(classes.link, {
-        [classes.linkActive]: route.path === active,
-      })}
-      component={Link}
-      variant="link"
-      to={route.path}
-      onClick={() => {
-        setActive(route.path)
-      }}
-    >
-      {route.name}
-    </Text>
-  ))
+  const [opened, { toggle, close }] = useDisclosure();
 
   return (
     <BrowserRouter>
       <AppShell
-        navbar={
-          <Navbar width={{ sm: 300 }} p="md">
-            <Navbar.Section grow>
-              <Group className={classes.header} position="apart">
-                <MantineLogo size={28} />
-                <Code sx={{ fontWeight: 700 }}>v0.0.7</Code>
-              </Group>
-              {links}
-            </Navbar.Section>
-          </Navbar>
-        }
+        header={{ height: 60 }}
+        navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+        padding="md"
       >
-        <Routes>
-          {routes.map((route) => (
-            <Route path={route.path} element={route.element} />
+        <AppShell.Header>
+          <Group h="100%" px="md">
+            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+            <MantineLogo size={30} />
+          </Group>
+        </AppShell.Header>
+
+        <AppShell.Navbar p="md">
+          {routes.map(({ path, label }) => (
+            <MantineNavLink
+              key={path}
+              component={"div"}
+              label={label}
+              renderRoot={(props) => <NavLink {...props} to={path} onClick={close}/>}
+            />
           ))}
-        </Routes>
+        </AppShell.Navbar>
+
+        <AppShell.Main>
+          <Routes>
+            {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+          </Routes>
+        </AppShell.Main>
       </AppShell>
     </BrowserRouter>
-  )
+  );
 }
