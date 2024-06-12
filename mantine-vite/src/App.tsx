@@ -5,11 +5,11 @@ import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import PictureLayout from './PictureLayout';
-import { DemoPage } from './Demo';
+import { UploadPage } from './UploadPage';
 
 const routes = [
   { path: "/", label: "Home", element: <div>Home Page</div> },
-  { path: "/contact", label: "Contact", element: <DemoPage/> },
+  { path: "/contact", label: "Contact", element: <UploadPage/> },
   { path: "/about", label: "About", element: <PictureLayout/> },
 ];
 

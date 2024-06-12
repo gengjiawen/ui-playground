@@ -1,15 +1,15 @@
-import { Group, Text, useMantineTheme, rem, Title } from '@mantine/core'
+import { Group, Text, rem, Title } from '@mantine/core'
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react'
-import { Dropzone, DropzoneProps } from '@mantine/dropzone'
+import { Dropzone, type DropzoneProps } from '@mantine/dropzone'
 import Papa from 'papaparse'
 import { useState } from 'react'
 
-export function DemoPage(props: Partial<DropzoneProps>) {
-  const theme = useMantineTheme()
+export function UploadPage(props: Partial<DropzoneProps>) {
   const [file, setFile] = useState('')
   const [error, setFileError] = useState('')
   const max_m = 10
   const maxFilesize = max_m * 1024 ** 2
+
   return (
     <>
       <Dropzone
@@ -19,7 +19,7 @@ export function DemoPage(props: Partial<DropzoneProps>) {
           setFile(files[0]?.path ?? '')
           if (files[0]?.path?.endsWith('csv')) {
             Papa.parse(files[0], {
-              complete: function (results) {
+              complete: (results) => {
                 console.log('Finished:', results.data)
               },
             })
@@ -27,33 +27,29 @@ export function DemoPage(props: Partial<DropzoneProps>) {
         }}
         onReject={(files) => {
           console.log('rejected files', files)
-          setFile(files[0].file.name)
-          setFileError(files[0].errors[0].message)
+          if (files[0]) {
+            setFile(files[0].file.name)
+            setFileError(files[0].errors[0]?.message || '')
+          }
         }}
         maxSize={maxFilesize}
         {...props}
       >
         <Group
-          position="center"
-          spacing="xl"
+          justify="center" 
+          gap="xl"
           style={{ minHeight: rem(220), pointerEvents: 'none' }}
         >
           <Dropzone.Accept>
             <IconUpload
               size="3.2rem"
               stroke={1.5}
-              color={
-                theme.colors[theme.primaryColor][
-                  theme.colorScheme === 'dark' ? 4 : 6
-                ]
-              }
             />
           </Dropzone.Accept>
           <Dropzone.Reject>
             <IconX
               size="3.2rem"
               stroke={1.5}
-              color={theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6]}
             />
           </Dropzone.Reject>
           <Dropzone.Idle>
@@ -82,8 +78,8 @@ export function DemoPage(props: Partial<DropzoneProps>) {
           </div>
         </Group>
       </Dropzone>
-      <Title>File: {file} </Title>
-      {error.length > 0 && <Title>File Error: {error} </Title> }
+      <Title>File: {file}</Title>
+      {error.length > 0 && <Title>File Error: {error} </Title>}
     </>
   )
 }

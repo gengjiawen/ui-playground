@@ -1,4 +1,4 @@
-import { Button, Switch, SegmentedControl, TextInput, NumberInput, Select } from '@mantine/core';
+import { Switch, SegmentedControl, TextInput, NumberInput, Select } from '@mantine/core';
 
 function PictureLayout() {
   return (
