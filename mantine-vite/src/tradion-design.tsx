@@ -28,7 +28,7 @@ import {
           padding="md"
         >
           <AppShell.Header>
-            <Group h="100%" px="md" justify="space-between">
+            <Group h="100%" px="md" >
               <Group>
                 <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                 <MantineLogo size={30} />
