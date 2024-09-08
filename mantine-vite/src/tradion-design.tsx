@@ -52,10 +52,6 @@ import {
           </AppShell.Header>
   
           <AppShell.Navbar p="md">
-            <Group mb="md">
-              <MantineLogo size={30} />
-              <span>Mantine</span>
-            </Group>
             {routes.map(({ path, label }) => (
               <MantineNavLink
                 key={path}
